@@ -1,5 +1,5 @@
+<?php session_start()?>
 <?php require 'elements/header.php';?>
-
 <div class="main_menu">
     <form action="index.php#ancre" id='ancre' method="get">
     <?php foreach($categories as $categorie):?>

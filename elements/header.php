@@ -17,7 +17,7 @@
         ?>
          
         <nav >
-            <a class="nav"  href=""> <img src="img/lock.png" style='height:40px' alt=""></a>
+            <a class="nav"  href="staff.php"> <img src="img/lock.png" style='height:40px' alt=""></a>
         </nav>
         <div class="title">
             <img class="logo_main" src="img/logogalway.png" alt="Logo du Galway" >
