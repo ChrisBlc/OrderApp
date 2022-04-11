@@ -35,19 +35,6 @@ function openMenu(evt, categorie){
     evt.currentTarget.className += " active";
 }
 
-
-/*ajout du bouton panier seulement à l'ajout d'un item
-let main = document.querySelector('main')
-    let menu = main.querySelectorAll('.menu_choice')
-    menu.forEach(ajout =>{
-        ajout.setAttribute('onclick', 'afficheBouton()')
-    })
-function afficheBouton(){
-    let boutonPanier = document.querySelector('.boutonPanier')
-    boutonPanier.style.display = 'block'
-}*/
-
-
 // recuperations des données
 let items = document.querySelectorAll('.item_quantity')
 let listItems = new Map()

@@ -15,6 +15,7 @@ function addToSql(string $table, array $data)
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
     $donneesEntrees =  '"'.implode('","', array_values($data)).'"';
+    dump($donneesEntrees);
     $query = "INSERT INTO $table VALUES (null, $donneesEntrees)";
     $add = $pdo->query($query);
     return $add;

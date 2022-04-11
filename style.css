@@ -4,12 +4,11 @@
     padding: 0;
     box-sizing: border-box;
     line-height: inherit;
-    color: inherit;
   }
 
 body{
     font-family: 'Bree Serif', serif;
-    font-size: 22px;
+    font-size: 16px;
     background-color: rgb(4, 68, 12);
 }
 button{
@@ -37,12 +36,6 @@ input::-o-outer-spin-button {
 	margin:0
 }
 
-
-
-
-
-
-
 .header{
     height: 400px;
     background: linear-gradient(to bottom, transparent, black),
@@ -67,21 +60,21 @@ input::-o-outer-spin-button {
 }
 .nav a {
     color: #fff;
-    padding: 0.5em;
-    margin-left: 2em;
-    margin-right: 1em;
+    margin : 0.8em;
     transition: all 0.3s;
 }
 .nav a:hover{
     transform: scale(1.1);
 }
 .nav {
-    text-align: end;
-    padding-top: .5em;
-    padding-bottom: .5em;
-    margin-left: auto;
-    margin-right: 0;
-    float: right
+    height: 400px;
+    display: flex;
+    float: right;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: rgba(255, 255, 255, 0.342);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .menu_choice {
     background-color:rgb(16, 124, 25);
@@ -166,6 +159,7 @@ input::-o-outer-spin-button {
     bottom: 2%;
     right:2%;
     z-index: 200;
+    background: url("img/iconepanier.png") no-repeat center;
     background-color: orange;
     border-radius: 50%;
     border: none;
@@ -175,11 +169,23 @@ input::-o-outer-spin-button {
 
 
  @media all and (max-width: 800px) {
+    body{
+        font-size: 22px;
+     }
+     button{
+         font-size: 22px;
+     }
     .header{
+        height: 300px;
+    }
+    .nav {
         height: 300px;
     }
     .title_main{
         font-size:2em;
+    }
+    .menu_choice{
+        width: 30%;
     }
     
  }

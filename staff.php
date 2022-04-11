@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link type="text/css" rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="style.css">
     <title>Order App</title>
 </head>
 <body style='background: rgb(4, 68, 12)'>
@@ -22,7 +22,7 @@
         ?>
          
         <nav class="nav">
-            <a href=""> Se deconnecter</a>
+            <a href="app/disconnect.php"> <img src="img/door.svg" style='height:40px' alt=""></a>
         </nav>
         <div class="title">
             <img class="logo_main" src="img/logogalway.png" alt="Logo du Galway" >
@@ -34,7 +34,7 @@
     <?php
         if (!isset($_SESSION['id'])){
             require 'login.php';
-        } else if (($_SESSION['id']== $admin['id']) || ($_SESSION['password']== $admin['password'])){
+        } else if (($_SESSION['id']== $admin['id']) && ($_SESSION['password']== $admin['password'])){
             $loggedUser = true;
         }else {require 'login.php';
         }
@@ -101,13 +101,11 @@
                     $donnees = $pdo->query("SELECT * FROM $tableName")->fetchAll();
                     $titres = $pdo->query("SELECT COLUMN_NAME
                     FROM INFORMATION_SCHEMA.COLUMNS
-                    WHERE TABLE_NAME = '$tableName' ")->fetchAll();
+                    WHERE TABLE_NAME = '$tableName' order by ORDINAL_POSITION ")->fetchAll();
                 ?>
                 <table class="table table-dark table-striped">
                         <thead>
-                            <tr>
                             <h2 style='color: white;'> MES <?= htmlentities( strtoupper(noAccent($_GET['cat'])))?> </h2>
-                            </tr>
                             <tr>
                                 <?php foreach($titres as $titre):?>
                                     <th><?= $titre['COLUMN_NAME'] ?></th>

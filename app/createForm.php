@@ -11,7 +11,7 @@ function createForm(string $choisis)
 require "pdo.php";
 $columnsTitlesQuery="SELECT COLUMN_NAME
 FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_NAME = '$choisis' ";
+WHERE TABLE_NAME = '$choisis' order by ORDINAL_POSITION";
 $titles = $pdo->query($columnsTitlesQuery)->fetchAll();
 $pickable= [];
 foreach ($titles as $title){
@@ -28,19 +28,14 @@ $html ="<form action=''  class='form-control' method='POST'>
 <input class='form-control mb-3' type='file' name='image'>";
 foreach ($pickable as $pick){
     if( str_starts_with($pick, 'prix')){
-        if ($pick != 'prix'){
-        $pick = str_ireplace('prix', '', $pick );
-        }
-        $html .= "
+        $html = $html."
             <label for='{$pick}'>$pick</label>
             <input class='me-4' type='number' step='0.1' name='{$pick}' placeholder='€.€' required>";
-    } else{
-        $html .= "
+    } else $html = $html."
         <input type='radio' id='$pick' name='$pick' value='1' checked>
         <label  class='me-4' for='$pick'>Demander $pick</label>
         <input type='radio' id='$pick' name='$pick' value='0'>
-        <label  class='me-4' for='$pick'> Ne pas demander $pick</label>";
-    }    
+        <label  class='me-4' for='$pick'> Ne pas demander $pick</label>";    
 }
 return $html;
 
